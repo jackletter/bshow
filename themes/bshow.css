@@ -1,0 +1,47 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.panel-split-h {
+    width: 2px;
+    height: 100%;
+    cursor: e-resize;
+    background-color: black;
+}
+
+.panel-split-v {
+    width: 100%;
+    height: 2px;
+    cursor: n-resize;
+    background-color: black;
+}
+
+.panel-split-h, .panel-split-v {
+    position: absolute;
+    font-size: 1px;
+}
+
+.panel-split-t {
+    top: 0;
+}
+
+.panel-split-b {
+    bottom: 0;
+}
+
+.panel-split-l {
+    left: 0;
+}
+
+.panel-split-r {
+    right: 0;
+}
+
+.panel-maintank {
+    position: absolute;
+    overflow: hidden;
+}
