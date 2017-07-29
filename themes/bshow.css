@@ -20,6 +20,20 @@ html, body {
     background-color: black;
 }
 
+.panel-split-corner {
+    position: absolute;
+    font-size: 1px;
+    background-color: black;
+}
+
+.panel-split-lt, .panel-split-rb {
+    cursor: nw-resize;
+}
+
+.panel-split-lb, .panel-split-rt {
+    cursor: ne-resize;
+}
+
 .panel-split-h, .panel-split-v {
     position: absolute;
     font-size: 1px;
