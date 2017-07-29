@@ -362,6 +362,7 @@
                 }
                 splitT.appendTo(_div);
                 var x = y = 0;
+
                 function mouseDown(e) {
                     x = e.pageX;
                     $(document).bind("mousemove", {
@@ -419,6 +420,195 @@
                 splitT.bind("mousedown", {target: _div, conf: div}, mouseDown);
             }
 
+            if (div.resizeLeftTop && div.resizeLeft && div.resizeTop) {
+                var splitT = $("<div class='panel-split-corner panel-split-lt'></div>");
+                splitT.css("left", 0);
+                splitT.css("top", 0);
+                if (typeof(div.resizeLeftTop) == "object") {
+                    splitT.css(div.resizeLeftTop);
+                } else {
+                    if (typeof(div.resizeLeft) == "object") {
+                        splitT.css("width", div.resizeLeft["width"]);
+                    } else {
+                        splitT.css("width", sizebar_left);
+                    }
+                    if (typeof(div.resizeTop) == "object") {
+                        splitT.css("height", div.resizeTop["height"]);
+                    } else {
+                        splitT.css("height", sizebar_top);
+                    }
+                }
+                splitT.appendTo(_div);
+                var x = y = 0;
+
+                function mouseDown(e) {
+                    y = e.pageY;
+                    x = e.pageX;
+                    $(document).bind("mousemove", {
+                        target: e.data.target,
+                        conf: e.data.conf
+                    }, mouseMove).bind("mouseup", {target: e.data.target, conf: e.data.conf}, mouseUp);
+                    e.preventDefault();
+                }
+
+                function mouseMove(e) {
+                    var dx = e.pageX - x;
+                    x = e.pageX;
+                    var dy = e.pageY - y;
+                    y = e.pageY;
+                    bshow.cacl(dx, dy, e.data.conf, bshow.POS.LT);
+                    e.preventDefault();
+                }
+
+                function mouseUp(e) {
+                    $(document).unbind("mousemove", mouseMove).unbind("mouseup", mouseUp);
+                }
+
+                splitT.bind("mousedown", {target: _div, conf: div}, mouseDown);
+            }
+
+            if (div.resizeLeftBottom && div.resizeLeft && div.resizeBottom) {
+                var splitT = $("<div class='panel-split-corner panel-split-lb'></div>");
+                splitT.css("left", 0);
+                splitT.css("bottom", 0);
+                if (typeof(div.resizeLeftBottom) == "object") {
+                    splitT.css(div.resizeLeftBottom);
+                } else {
+                    if (typeof(div.resizeLeft) == "object") {
+                        splitT.css("width", div.resizeLeft["width"]);
+                    } else {
+                        splitT.css("width", sizebar_left);
+                    }
+                    if (typeof(div.resizeBottom) == "object") {
+                        splitT.css("height", div.resizeBottom["height"]);
+                    } else {
+                        splitT.css("height", sizebar_bottom);
+                    }
+                }
+                splitT.appendTo(_div);
+                var x = y = 0;
+
+                function mouseDown(e) {
+                    y = e.pageY;
+                    x = e.pageX;
+                    $(document).bind("mousemove", {
+                        target: e.data.target,
+                        conf: e.data.conf
+                    }, mouseMove).bind("mouseup", {target: e.data.target, conf: e.data.conf}, mouseUp);
+                    e.preventDefault();
+                }
+
+                function mouseMove(e) {
+                    var dx = e.pageX - x;
+                    x = e.pageX;
+                    var dy = e.pageY - y;
+                    y = e.pageY;
+                    bshow.cacl(dx, dy, e.data.conf, bshow.POS.LB);
+                    e.preventDefault();
+                }
+
+                function mouseUp(e) {
+                    $(document).unbind("mousemove", mouseMove).unbind("mouseup", mouseUp);
+                }
+
+                splitT.bind("mousedown", {target: _div, conf: div}, mouseDown);
+            }
+
+            if (div.resizeRightTop && div.resizeRight && div.resizeTop) {
+                var splitT = $("<div class='panel-split-corner panel-split-rt'></div>");
+                splitT.css("right", 0);
+                splitT.css("top", 0);
+                if (typeof(div.resizeRightTop) == "object") {
+                    splitT.css(div.resizeRightTop);
+                } else {
+                    if (typeof(div.resizeRight) == "object") {
+                        splitT.css("width", div.resizeRight["width"]);
+                    } else {
+                        splitT.css("width", sizebar_right);
+                    }
+                    if (typeof(div.resizeTop) == "object") {
+                        splitT.css("height", div.resizeTop["height"]);
+                    } else {
+                        splitT.css("height", sizebar_top);
+                    }
+                }
+                splitT.appendTo(_div);
+                var x = y = 0;
+
+                function mouseDown(e) {
+                    y = e.pageY;
+                    x = e.pageX;
+                    $(document).bind("mousemove", {
+                        target: e.data.target,
+                        conf: e.data.conf
+                    }, mouseMove).bind("mouseup", {target: e.data.target, conf: e.data.conf}, mouseUp);
+                    e.preventDefault();
+                }
+
+                function mouseMove(e) {
+                    var dx = e.pageX - x;
+                    x = e.pageX;
+                    var dy = e.pageY - y;
+                    y = e.pageY;
+                    bshow.cacl(dx, dy, e.data.conf, bshow.POS.RT);
+                    e.preventDefault();
+                }
+
+                function mouseUp(e) {
+                    $(document).unbind("mousemove", mouseMove).unbind("mouseup", mouseUp);
+                }
+
+                splitT.bind("mousedown", {target: _div, conf: div}, mouseDown);
+            }
+
+            if (div.resizeRightBottom && div.resizeRight && div.resizeBottom) {
+                var splitT = $("<div class='panel-split-corner panel-split-rb'></div>");
+                splitT.css("right", 0);
+                splitT.css("bottom", 0);
+                if (typeof(div.resizeRightBottom) == "object") {
+                    splitT.css(div.resizeRightBottom);
+                } else {
+                    if (typeof(div.resizeRight) == "object") {
+                        splitT.css("width", div.resizeRight["width"]);
+                    } else {
+                        splitT.css("width", sizebar_right);
+                    }
+                    if (typeof(div.resizeBottom) == "object") {
+                        splitT.css("height", div.resizeBottom["height"]);
+                    } else {
+                        splitT.css("height", sizebar_bottom);
+                    }
+                }
+                splitT.appendTo(_div);
+                var x = y = 0;
+
+                function mouseDown(e) {
+                    y = e.pageY;
+                    x = e.pageX;
+                    $(document).bind("mousemove", {
+                        target: e.data.target,
+                        conf: e.data.conf
+                    }, mouseMove).bind("mouseup", {target: e.data.target, conf: e.data.conf}, mouseUp);
+                    e.preventDefault();
+                }
+
+                function mouseMove(e) {
+                    var dx = e.pageX - x;
+                    x = e.pageX;
+                    var dy = e.pageY - y;
+                    y = e.pageY;
+                    bshow.cacl(dx, dy, e.data.conf, bshow.POS.RB);
+                    e.preventDefault();
+                }
+
+                function mouseUp(e) {
+                    $(document).unbind("mousemove", mouseMove).unbind("mouseup", mouseUp);
+                }
+
+                splitT.bind("mousedown", {target: _div, conf: div}, mouseDown);
+            }
+
+
             //创建内容区容器
             var mainArea = $("<div class='panel-maintank'></div>").appendTo(_div).css(css_para);
             if (div.content) {
@@ -450,6 +640,23 @@
         ///<param name="dy">鼠标垂直偏移量</param>
         ///<param name="el">容器元素</param>
         ///<param name="posi">发生拖拉的位置:</param>
+        if (pos == bshow.POS.LT) {
+            bshow.cacl(dx, dy, boxconf, bshow.POS.L);
+            bshow.cacl(dx, dy, boxconf, bshow.POS.T);
+            return;
+        } else if (pos == bshow.POS.LB) {
+            bshow.cacl(dx, dy, boxconf, bshow.POS.L);
+            bshow.cacl(dx, dy, boxconf, bshow.POS.B);
+            return;
+        } else if (pos == bshow.POS.RT) {
+            bshow.cacl(dx, dy, boxconf, bshow.POS.R);
+            bshow.cacl(dx, dy, boxconf, bshow.POS.T);
+            return;
+        } else if (pos == bshow.POS.RB) {
+            bshow.cacl(dx, dy, boxconf, bshow.POS.R);
+            bshow.cacl(dx, dy, boxconf, bshow.POS.B);
+            return;
+        }
         var el = $("#" + boxconf.id);//要进行拖拉的元素
         var index = 0;//0:拖拉的是上下边框,1:拖拉的是左右边框
         var ahead = 0;//0:拖拉的是上、左边框,1:拖拉的是下、右边框
