@@ -277,10 +277,21 @@
             }
 
             //panel是否可以改变尺寸
+            var sizebar_top = "4px";
+            var sizebar_left = "4px";
+            var sizebar_right = "4px";
+            var sizebar_bottom = "4px";
             var css_para = {position: "absolute", top: 0, left: 0, right: 0, bottom: 0};
             if (div.resizeTop) {
-                var splitT = $("<div class='panel-split-v panel-split-t'></div>").appendTo(_div);
-                css_para.top = "2px";
+                var splitT = $("<div class='panel-split-v panel-split-t'></div>");
+                if (typeof(div.resizeTop) == "object") {
+                    splitT.css(div.resizeTop);
+                    css_para.top = splitT.css("height");
+                } else {
+                    splitT.css("height", sizebar_top);
+                    css_para.top = sizebar_top;
+                }
+                splitT.appendTo(_div)
                 var x = y = 0;
 
                 function mouseDown(e) {
@@ -306,8 +317,16 @@
                 splitT.bind("mousedown", {target: _div, conf: div}, mouseDown);
             }
             if (div.resizeLeft) {
-                var splitT = $("<div class='panel-split-h panel-split-l'></div>").appendTo(_div);
-                css_para.left = "2px";
+                var splitT = $("<div class='panel-split-h panel-split-l'></div>");
+                if (typeof(div.resizeLeft) == "object") {
+                    splitT.css(div.resizeLeft);
+                    css_para.left = splitT.css("width");
+                } else {
+                    splitT.css("width", sizebar_left);
+                    css_para.left = sizebar_left;
+                }
+                splitT.appendTo(_div);
+
                 var x = y = 0;
 
                 function mouseDown(e) {
@@ -333,10 +352,16 @@
                 splitT.bind("mousedown", {target: _div, conf: div}, mouseDown);
             }
             if (div.resizeRight) {
-                var splitT = $("<div class='panel-split-h panel-split-r'></div>").appendTo(_div);
-                css_para.right = "2px";
+                var splitT = $("<div class='panel-split-h panel-split-r'></div>");
+                if (typeof(div.resizeRight) == "object") {
+                    splitT.css(div.resizeRight);
+                    css_para.right = splitT.css("width");
+                } else {
+                    splitT.css("width", sizebar_right);
+                    css_para.right = sizebar_right;
+                }
+                splitT.appendTo(_div);
                 var x = y = 0;
-
                 function mouseDown(e) {
                     x = e.pageX;
                     $(document).bind("mousemove", {
@@ -360,8 +385,15 @@
                 splitT.bind("mousedown", {target: _div, conf: div}, mouseDown);
             }
             if (div.resizeBottom) {
-                var splitT = $("<div class='panel-split-v panel-split-b'></div>").appendTo(_div);
-                css_para.bottom = "2px";
+                var splitT = $("<div class='panel-split-v panel-split-b'></div>");
+                if (typeof(div.resizeBottom) == "object") {
+                    splitT.css(div.resizeBottom);
+                    css_para.bottom = splitT.css("height");
+                } else {
+                    splitT.css("height", sizebar_bottom);
+                    css_para.bottom = sizebar_bottom;
+                }
+                splitT.appendTo(_div);
                 var x = y = 0;
 
                 function mouseDown(e) {

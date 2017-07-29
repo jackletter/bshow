@@ -24,7 +24,10 @@ var config =
             resizeLeft: true,
             resizeRight: true,
             resizeTop: true,
-            resizeBottom: true,
+            resizeBottom:  {
+                "height": "8px",
+                "background-color": "#666"
+            },
             style: {
                 "background-color": "silver"
             },
